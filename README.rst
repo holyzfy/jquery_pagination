@@ -112,6 +112,9 @@ ellipse_text
 	displayed number interval, this text will be inserted into the gap (inside a
 	span tag). Can be left blank to avoid the additional tag. Default: ``...``
 
+show_if_single_page
+    If true then the pagination is always shown. Default: false
+
 load_first_page
 	If true (default) then the callback is executed when the plugin is 
 	initialized. If you load your content with AJAX and already show content
