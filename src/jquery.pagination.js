@@ -186,7 +186,7 @@
 		// -----------------------------------
 		// Initialize containers
 		// -----------------------------------
-		current_page = parseInt( opts.page_index > 0 ? opts.current_page - 1 : opts.current_page, 10);
+		current_page = parseInt( opts.page_index > 0 ? Math.max(0, opts.current_page - 1) : opts.current_page, 10);
 		containers.data('current_page', current_page);
 		// Create a sane value for maxentries and items_per_page
 		maxentries = (!maxentries || maxentries < 0)?1:maxentries;
