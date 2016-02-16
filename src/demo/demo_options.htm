@@ -96,6 +96,18 @@
         <h3>Config form for pagination parameters</h3>
         <!-- This form is just to demonstrate the whole range of options and display styles. -->
 		<form name="paginationoptions">
+            <p>
+                <label for="">page index</label>
+                <input type="text" name="page_index" value="0" />    
+            </p>
+            <p>
+                <label for="">current page</label>
+                <input type="text" name="current_page" value="4" />    
+            </p>
+            <p>
+                <label for="">link to</label>
+                <input type="text" name="link_to" value="#__id__" />    
+            </p>
 			<p><label for="items_per_page">Number of items per page</label><input type="text" value="5" name="items_per_page" id="items_per_page" class="numeric"/></p>
 			<p><label for="num_display_entries">Number of pagination links shown</label><input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/></p>
 			<p><label for="num">Number of start and end points</label><input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/></p>

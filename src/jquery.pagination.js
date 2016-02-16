@@ -71,7 +71,7 @@
 			else
 			{
 				lnk = $("<a>" + appendopts.text + "</a>")
-					.attr('href', this.opts.link_to.replace(/__id__/,page_id));
+					.attr('href', this.opts.link_to.replace(/__id__/, this.opts.page_index>0 ? page_id+1 : page_id));
 			}
 			if(appendopts.classes){ lnk.addClass(appendopts.classes); }
 			if(appendopts.rel){ lnk.attr('rel', appendopts.rel); }
@@ -132,6 +132,7 @@
 		
 		// Initialize options with default values
 		opts = $.extend({
+			page_index: 0,
 			items_per_page:10,
 			num_display_entries:11,
 			current_page:0,
@@ -178,14 +179,14 @@
 			containers.empty();
 			links.appendTo(containers);
 			// call the callback and propagate the event if it does not return false
-			var continuePropagation = opts.callback(new_current_page, containers);
+			var continuePropagation = opts.callback( opts.page_index > 0 ? new_current_page + 1 : new_current_page, containers);
 			return continuePropagation;
 		}
 		
 		// -----------------------------------
 		// Initialize containers
 		// -----------------------------------
-		current_page = parseInt(opts.current_page, 10);
+		current_page = parseInt( opts.page_index > 0 ? opts.current_page - 1 : opts.current_page, 10);
 		containers.data('current_page', current_page);
 		// Create a sane value for maxentries and items_per_page
 		maxentries = (!maxentries || maxentries < 0)?1:maxentries;
@@ -233,7 +234,7 @@
 		}
 		// call callback function
 		if(opts.load_first_page) {
-			opts.callback(current_page, containers);
+			opts.callback(opts.page_index > 0 ? current_page + 1 : current_page, containers);
 		}
 	}; // End of $.fn.pagination block
 	

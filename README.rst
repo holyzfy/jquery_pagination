@@ -63,6 +63,9 @@ callback
 	For a fast user experience you should NOT load content via AJAX in this 
 	function. Instead, pre-load some content pages and switch between them with
 	this function.
+
+page_index
+    allowing page counting to optionally start at 1. Default: 0
     
 current_page
 	The page that is selected when the pagination is initialized. Default: 0
